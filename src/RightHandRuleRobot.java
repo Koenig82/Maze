@@ -10,7 +10,7 @@ public class RightHandRuleRobot extends Robot{
         direction = 1;
     }
 
-    public void move throws InvalidMazeException() {
+    public void move() throws InvalidMazeException {
 
         if(direction == 1) {
 
