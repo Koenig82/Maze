@@ -3,59 +3,157 @@
  */
 public class RightHandRuleRobot extends Robot{
 
-    private int directionMoved;//0=w 1=s 2=e 3=n
+    private int direction;//0=w 1=s 2=e 3=n
 
     public RightHandRuleRobot(Maze maze) {
         super.(maze);
-        directionMoved = 1;
+        direction = 1;
     }
 
-    public void move() {
-        if(directionMoved == 1) {
+    public void move throws InvalidMazeException() {
 
-            if(maze.isMovable(getCurrentPosition().getPosToWest())) {
+        if(direction == 1) {
+
+            if (maze.isMovable(getCurrentPosition().getPosToWest())) {
 
                 setCurrentPosition(getCurrentPosition().getPosToWest());
-                directionMoved = 0;
+                direction = 0;
 
                 return;
 
-            } else if(maze.isMovable(getCurrentPosition().getPosToSouth())) {
+            } else if (maze.isMovable(getCurrentPosition().getPosToSouth())) {
 
                 setCurrentPosition(getCurrentPosition().getPosToSouth());
-                directionMoved = 1;
+                direction = 1;
 
                 return;
 
-            } else if(maze.isMovable(getCurrentPosition().getPosToEast())) {
+            } else if (maze.isMovable(getCurrentPosition().getPosToEast())) {
 
                 setCurrentPosition(getCurrentPosition().getPosToEast());
-                directionMoved = 2;
+                direction = 2;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToNorth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToNorth());
+                direction = 3;
+
+                return;
+
+            } else {
+
+                throw new InvalidMazeException("Robot trapped");
+            }
+
+        }
+        if(direction == 0) {
+
+            if(maze.isMovable(getCurrentPosition().getPosToNorth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToNorth());
+                direction = 3;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToWest())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToWest());
+                direction = 0;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToSouth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToSouth());
+                direction = 1;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToEast())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToEast());
+                direction = 2;
+
+                return;
+
+            } else {
+
+                throw new InvalidMazeException("Robot trapped");
+            }
+        }
+
+        if(direction == 2) {
+
+            if (maze.isMovable(getCurrentPosition().getPosToSouth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToSouth());
+                direction = 1;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToEast())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToEast());
+                direction = 2;
 
                 return;
 
             } else if(maze.isMovable(getCurrentPosition().getPosToNorth())) {
 
                 setCurrentPosition(getCurrentPosition().getPosToNorth());
-                directionMoved = 3;
+                direction = 3;
 
                 return;
-            }
-        }
 
-        if(directionMoved == 0) {
-
-            if(maze.isMovable(getCurrentPosition().getPosToWest())) {
+            } else if (maze.isMovable(getCurrentPosition().getPosToWest())) {
 
                 setCurrentPosition(getCurrentPosition().getPosToWest());
-                directionMoved = 'west';
+                direction = 0;
 
                 return;
+
+            } else {
+
+                throw new InvalidMazeException("Robot trapped");
             }
         }
-    }
 
-    private void chooseNextMovable() {
-        directionMoved = (directionMoved + 1) % 4;
+        if(direction == 3) {
+
+            if (maze.isMovable(getCurrentPosition().getPosToEast())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToEast());
+                direction = 2;
+
+                return;
+
+            } else if(maze.isMovable(getCurrentPosition().getPosToNorth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToNorth());
+                direction = 3;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToWest())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToWest());
+                direction = 0;
+
+                return;
+
+            } else if (maze.isMovable(getCurrentPosition().getPosToSouth())) {
+
+                setCurrentPosition(getCurrentPosition().getPosToSouth());
+                direction = 1;
+
+                return;
+
+            } else {
+
+                throw new InvalidMazeException("Robot trapped");
+            }
+        }
     }
 }

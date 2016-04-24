@@ -11,8 +11,8 @@ public class MemoryRobot extends Robot {
 
     public MemoryRobot(Maze maze) {
         super(maze);
-        visited = new HashMap<Integer, Position>();
-        backTrack = new Stack<Position>();
+        visited = new HashMap<>();
+        backTrack = new Stack<>();
     }
 
     public void move() throws InvalidMazeException{
