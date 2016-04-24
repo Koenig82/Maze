@@ -19,11 +19,11 @@ public class Maze {
                 if(c == 'S') {
 
                     numStart++;
+                    start = new Position(temp.length(), rows.size());
                 }
                 if(c == 'G') {
 
                     numGoal++;
-                    start = new Position(temp.length(), rows.size());
                 }
                 if(c == '\n') {
 
@@ -42,7 +42,8 @@ public class Maze {
 
             if(numStart != 1 || numGoal != 1) {
 
-                throw new InvalidMazeException("Invalid maze");
+                throw new InvalidMazeException("Invalid maze. Must contain" +
+                                               " 1 start and 1 goal");
             }
 
             mazeData = new char[rows.size()][];
