@@ -15,7 +15,7 @@ public class MemoryRobot extends Robot {
         backTrack = new Stack<Position>();
     }
 
-    public void move() {
+    public void move() throws InvalidMazeException{
         if(maze.isMovable(getCurrentPosition().getPosToNorth())) {
 
             if(!visited.containsKey(getCurrentPosition().
@@ -27,9 +27,7 @@ public class MemoryRobot extends Robot {
 
                 return;
             }
-        }
-
-        if(maze.isMovable(getCurrentPosition().getPosToEast())) {
+        } else if(maze.isMovable(getCurrentPosition().getPosToEast())) {
 
             if(!visited.containsKey(getCurrentPosition().
                getPosToEast().hashCode())) {
@@ -40,9 +38,7 @@ public class MemoryRobot extends Robot {
 
                 return;
             }
-        }
-
-        if(maze.isMovable(getCurrentPosition().getPosToSouth())) {
+        } else if(maze.isMovable(getCurrentPosition().getPosToSouth())) {
 
             if(!visited.containsKey(getCurrentPosition().
                getPosToSouth().hashCode())) {
@@ -53,9 +49,7 @@ public class MemoryRobot extends Robot {
 
                 return;
             }
-        }
-
-        if(maze.isMovable(getCurrentPosition().getPosToWest())) {
+        } else if(maze.isMovable(getCurrentPosition().getPosToWest())) {
 
             if(!visited.containsKey(getCurrentPosition().
                getPosToWest().hashCode())) {
@@ -66,6 +60,9 @@ public class MemoryRobot extends Robot {
 
                 return;
             }
+        } else {
+
+            throw new InvalidMazeException("Robot trapped");
         }
 
         setCurrentPosition(backTrack.peek());
