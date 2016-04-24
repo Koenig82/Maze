@@ -11,7 +11,7 @@ public abstract class Robot {
         this.maze = maze;
     }
 
-    public abstract void move();
+    public abstract void move() throws InvalidMazeException;
 
     public Position getCurrentPosition() {
         return position;

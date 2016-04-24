@@ -21,7 +21,8 @@ public class MemoryRobot extends Robot {
             if(!visited.containsKey(getCurrentPosition().
                getPosToNorth().hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode())
+                visited.put(getCurrentPosition().hashCode(),
+                            getCurrentPosition());
                 backTrack.push(getCurrentPosition());
                 setCurrentPosition(getCurrentPosition().getPosToNorth());
 
@@ -32,7 +33,8 @@ public class MemoryRobot extends Robot {
             if(!visited.containsKey(getCurrentPosition().
                getPosToEast().hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode())
+                visited.put(getCurrentPosition().hashCode(),
+                            getCurrentPosition());
                 backTrack.push(getCurrentPosition());
                 setCurrentPosition(getCurrentPosition().getPosToEast());
 
@@ -43,7 +45,8 @@ public class MemoryRobot extends Robot {
             if(!visited.containsKey(getCurrentPosition().
                getPosToSouth().hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode())
+                visited.put(getCurrentPosition().hashCode(),
+                            getCurrentPosition());
                 backTrack.push(getCurrentPosition());
                 setCurrentPosition(getCurrentPosition().getPosToSouth());
 
@@ -54,7 +57,8 @@ public class MemoryRobot extends Robot {
             if(!visited.containsKey(getCurrentPosition().
                getPosToWest().hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode())
+                visited.put(getCurrentPosition().hashCode(),
+                            getCurrentPosition());
                 backTrack.push(getCurrentPosition());
                 setCurrentPosition(getCurrentPosition().getPosToWest());
 

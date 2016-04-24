@@ -6,7 +6,7 @@ public class RightHandRuleRobot extends Robot{
     private int direction;//0=w 1=s 2=e 3=n
 
     public RightHandRuleRobot(Maze maze) {
-        super.(maze);
+        super(maze);
         direction = 1;
     }
 
