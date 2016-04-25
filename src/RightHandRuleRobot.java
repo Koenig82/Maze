@@ -44,7 +44,8 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                System.out.println("trapped");
+                System.out.println("Maze must have path from start to finish");
+                System.exit(-1);
             }
 
         }
@@ -80,7 +81,8 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                System.out.println("trapped");
+                System.out.println("Maze must have path from start to finish");
+                System.exit(-1);
             }
         }
 
@@ -116,7 +118,8 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                System.out.println("trapped");
+                System.out.println("Maze must have path from start to finish");
+                System.exit(-1);
             }
         }
 
@@ -152,7 +155,8 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                System.out.println("trapped");
+                System.out.println("Maze must have path from start to finish");
+                System.exit(-1);
             }
         }
     }
