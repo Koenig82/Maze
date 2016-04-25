@@ -34,13 +34,9 @@ public class MemoryRobot extends Robot {
 
             return;
 
-        } else {
-
-            System.out.println("trapped");
         }
-
-        setCurrentPosition(backTrack.peek());
         backTrack.pop();
+        setCurrentPosition(backTrack.peek());
     }
 
     public boolean doMove(Position pos){
@@ -48,9 +44,8 @@ public class MemoryRobot extends Robot {
 
             if(!visited.containsKey(pos.hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode(),
-                        getCurrentPosition());
-                backTrack.push(getCurrentPosition());
+                visited.put(pos.hashCode(), pos);
+                backTrack.push(pos);
                 setCurrentPosition(pos);
 
                 return true;
