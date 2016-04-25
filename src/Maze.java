@@ -19,7 +19,7 @@ public class Maze {
                 if(c == 'S') {
 
                     numStart++;
-                    start = new Position(temp.length(), rows.size());
+                    start = new Position(rows.size(), temp.length());
                 }
                 if(c == 'G') {
 
@@ -59,13 +59,13 @@ public class Maze {
 
     public boolean isMovable(Position pos) {
 
-        if(!isWithinMazeBounds(pos) ||
-           mazeData[pos.getY()][pos.getX()] != ' ' ||
-           mazeData[pos.getY()][pos.getX()] != 'S' ||
-           mazeData[pos.getY()][pos.getX()] != 'G') {
-            return false;
+        if(isWithinMazeBounds(pos) && (
+         mazeData[pos.getX()][pos.getY()] == ' ' ||
+         mazeData[pos.getX()][pos.getY()] == 'S' ||
+         mazeData[pos.getX()][pos.getY()] == 'G')) {
+             return true;
         }
-        return true;
+        return false;
     }
 
     public boolean isGoal(Position pos) {

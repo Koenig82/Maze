@@ -17,19 +17,19 @@ public class Position {
     }
 
     public Position getPosToSouth() {
-        return new Position(x, y + 1);
+        return new Position(x + 1, y);
     }
 
     public Position getPosToNorth() {
-        return new Position(x, y - 1);
-    }
-
-    public Position getPosToWest() {
         return new Position(x - 1, y);
     }
 
+    public Position getPosToWest() {
+        return new Position(x, y - 1);
+    }
+
     public Position getPosToEast() {
-        return new Position(x + 1, y);
+        return new Position(x, y + 1);
     }
 
     public boolean equals(Object o) {

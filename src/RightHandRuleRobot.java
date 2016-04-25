@@ -10,7 +10,7 @@ public class RightHandRuleRobot extends Robot{
         direction = 1;
     }
 
-    public void move() throws InvalidMazeException {
+    public void move() {
 
         if(direction == 1) {
 
@@ -44,7 +44,7 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                throw new InvalidMazeException("Robot trapped");
+                System.out.println("trapped");
             }
 
         }
@@ -80,7 +80,7 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                throw new InvalidMazeException("Robot trapped");
+                System.out.println("trapped");
             }
         }
 
@@ -116,7 +116,7 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                throw new InvalidMazeException("Robot trapped");
+                System.out.println("trapped");
             }
         }
 
@@ -152,7 +152,7 @@ public class RightHandRuleRobot extends Robot{
 
             } else {
 
-                throw new InvalidMazeException("Robot trapped");
+                System.out.println("trapped");
             }
         }
     }

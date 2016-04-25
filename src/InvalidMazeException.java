@@ -1,5 +1,5 @@
 /**
- * Created by asker on 2016-04-23.
+ * Created by konig on 2016-04-23.
  */
 public class InvalidMazeException extends Exception {
 

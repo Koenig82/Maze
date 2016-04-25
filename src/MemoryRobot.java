@@ -15,61 +15,47 @@ public class MemoryRobot extends Robot {
         backTrack = new Stack<>();
     }
 
-    public void move() throws InvalidMazeException{
-        if(maze.isMovable(getCurrentPosition().getPosToNorth())) {
+    public void move() {
 
-            if(!visited.containsKey(getCurrentPosition().
-               getPosToNorth().hashCode())) {
 
-                visited.put(getCurrentPosition().hashCode(),
-                            getCurrentPosition());
-                backTrack.push(getCurrentPosition());
-                setCurrentPosition(getCurrentPosition().getPosToNorth());
+        if(doMove(getCurrentPosition().getPosToNorth())) {
 
-                return;
-            }
-        } else if(maze.isMovable(getCurrentPosition().getPosToEast())) {
+            return;
 
-            if(!visited.containsKey(getCurrentPosition().
-               getPosToEast().hashCode())) {
+        } else if(doMove(getCurrentPosition().getPosToEast())) {
 
-                visited.put(getCurrentPosition().hashCode(),
-                            getCurrentPosition());
-                backTrack.push(getCurrentPosition());
-                setCurrentPosition(getCurrentPosition().getPosToEast());
+            return;
 
-                return;
-            }
-        } else if(maze.isMovable(getCurrentPosition().getPosToSouth())) {
+        } else if(doMove(getCurrentPosition().getPosToSouth())) {
 
-            if(!visited.containsKey(getCurrentPosition().
-               getPosToSouth().hashCode())) {
+            return;
 
-                visited.put(getCurrentPosition().hashCode(),
-                            getCurrentPosition());
-                backTrack.push(getCurrentPosition());
-                setCurrentPosition(getCurrentPosition().getPosToSouth());
+        } else if(doMove(getCurrentPosition().getPosToWest())) {
 
-                return;
-            }
-        } else if(maze.isMovable(getCurrentPosition().getPosToWest())) {
+            return;
 
-            if(!visited.containsKey(getCurrentPosition().
-               getPosToWest().hashCode())) {
-
-                visited.put(getCurrentPosition().hashCode(),
-                            getCurrentPosition());
-                backTrack.push(getCurrentPosition());
-                setCurrentPosition(getCurrentPosition().getPosToWest());
-
-                return;
-            }
         } else {
 
-            throw new InvalidMazeException("Robot trapped");
+            System.out.println("trapped");
         }
 
         setCurrentPosition(backTrack.peek());
         backTrack.pop();
+    }
+
+    public boolean doMove(Position pos){
+        if(maze.isMovable(pos)) {
+
+            if(!visited.containsKey(pos.hashCode())) {
+
+                visited.put(getCurrentPosition().hashCode(),
+                        getCurrentPosition());
+                backTrack.push(getCurrentPosition());
+                setCurrentPosition(pos);
+
+                return true;
+            }
+        }
+        return false;
     }
 }
