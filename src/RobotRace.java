@@ -14,7 +14,7 @@ public class RobotRace {
 
 
         if(args.length == 0){
-            System.out.println("Missing command line argument. Maze text file needed");
+            System.out.println("Expected textfile as argument");
             return;
         }
         FileReader reader;
@@ -25,12 +25,12 @@ public class RobotRace {
         RightHandRuleRobot rightBot = new RightHandRuleRobot(maze);
         MemoryRobot memBot = new MemoryRobot(maze);
         int count = 0;
-        while(!rightBot.hasReachedGoal() && !memBot.hasReachedGoal() && count < 100) {
+        while(/*!rightBot.hasReachedGoal() &&*/ !memBot.hasReachedGoal() && count < 100) {
             System.out.println("körde");
-            if(!rightBot.hasReachedGoal()) {
+            /*if(!rightBot.hasReachedGoal()) {
                 rightBot.move();
                 rightBotCount++;
-            }
+            }*/
             if(!memBot.hasReachedGoal()) {
                 memBot.move();
                 memBotCount++;

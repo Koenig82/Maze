@@ -12,26 +12,26 @@ public class Maze {
 
         try{
             int numStart = 0, numGoal = 0;
-            int c;
+            int readChar;
             String temp = "";
 
-            while((c = reader.read()) != -1) {
-                if(c == 'S') {
+            while((readChar = reader.read()) != -1) {
+                if(readChar == 'S') {
 
                     numStart++;
                     start = new Position(rows.size(), temp.length());
                 }
-                if(c == 'G') {
+                if(readChar == 'G') {
 
                     numGoal++;
                 }
-                if(c == '\n') {
+                if(readChar == '\n') {
 
                     rows.add(temp);
                     temp = "";
                 } else {
 
-                    temp = temp + (char) c;
+                    temp = temp + (char) readChar;
                 }
             }
 
@@ -83,9 +83,9 @@ public class Maze {
 
     private boolean isWithinMazeBounds(Position pos) {
         if(pos.getY() < 0 ||
-           pos.getY() >= mazeData.length ||
+           pos.getY() >= mazeData[pos.getX()].length ||
            pos.getX() < 0 ||
-           pos.getX() >= mazeData[pos.getY()].length) {
+           pos.getX() >= mazeData.length) {
 
             return false;
         }
