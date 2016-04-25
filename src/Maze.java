@@ -82,10 +82,10 @@ public class Maze {
     }
 
     private boolean isWithinMazeBounds(Position pos) {
-        if(pos.getY() < 0 ||
-           pos.getY() >= mazeData[pos.getX()].length ||
-           pos.getX() < 0 ||
-           pos.getX() >= mazeData.length) {
+        if(pos.getX() < 0 ||
+           pos.getX() >= mazeData.length ||
+           pos.getY() < 0 ||
+           pos.getY() >= mazeData[pos.getX()].length) {
 
             return false;
         }
