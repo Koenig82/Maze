@@ -70,7 +70,7 @@ public class Maze {
 
     public boolean isGoal(Position pos) {
         if(!isWithinMazeBounds(pos) ||
-           mazeData[pos.getY()][pos.getX()] != 'G') {
+           mazeData[pos.getX()][pos.getY()] != 'G') {
 
             return false;
         }
