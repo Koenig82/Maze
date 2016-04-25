@@ -1,10 +1,16 @@
 /**
- * Created by konig on 2016-04-24.
+ * Created by Niklas Königsson on 2016-04-23.
+ * cs: dv15nkn
  */
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/**
+ * Class RobotRace
+ *
+ * this class contains the main method to test the robots
+ */
 public class RobotRace {
 
     public static void main(String [] args) throws FileNotFoundException,
@@ -18,18 +24,20 @@ public class RobotRace {
             System.out.println("Expected textfile as argument");
             return;
         }
+        //open the textfile and send it to the mazeclass
         FileReader reader;
         reader = new FileReader(args[0]);
         Maze maze;
         maze = new Maze(reader);
 
+        //create the two robots
         RightHandRuleRobot rightBot = new RightHandRuleRobot(maze);
         MemoryRobot memBot = new MemoryRobot(maze);
 
         boolean memGoal = false, rightGoal = false;
-
+        //As long as either of the robots is still searching, continue to move
+        //them and count the steps
         while(!memGoal || !rightGoal) {
-            //System.out.println("moving...");
             if(!rightBot.hasReachedGoal() && !rightGoal) {
                 rightBot.move();
                 rightBotCount++;
